@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Get Page HTML",
+    "name": "IQ Extension",
     "version": "1.0",
     "description": "Gets all the HTML of the current webpage.",
     "permissions": ["scripting", "activeTab"],

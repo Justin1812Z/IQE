@@ -4,8 +4,14 @@ document.getElementById('get-html').addEventListener('click', async () => {
     target: { tabId: tab.id },
     func: () => document.documentElement.outerHTML
   }, (results) => {
-    document.getElementById('output').textContent = results[0].result;
-
+    const blob = new Blob([results[0].result], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'page.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   });
 });
-
